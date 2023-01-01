@@ -1,0 +1,14 @@
+#!/usr/bin/sh
+
+d=2022-03-23
+i=0
+while [ $(date +%s --date="$d") -lt 1672405200 ]; do
+	while [ "$i" -lt 23 ]; do
+		#echo $i
+		i=$((i+1))
+	git commit --allow-empty --date="$d" -m "updates"
+	done
+	#echo 'git commit --allow-empty --date="$d" -m "updates"'
+	i=0
+	d=$(date -I --date="$d + $((1 + $RANDOM % 7)) day")
+done
