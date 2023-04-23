@@ -1,1 +1,3 @@
-# scripts and code snippets
+# Code snippets / Code bank
+
+Repo for code snippets
