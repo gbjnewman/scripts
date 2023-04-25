@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# this file is to symlink all the scripts in this folder to home bin. it will
+# then remove the readme and itself from the symlinked files. if home
+# bin didn't exist then a restart may be required for it to be included in the
+# path.
+
+
+mkdir -p "$HOME"/bin/
+ln -sf "$PWD"/* "$HOME"/bin/
+rm "$HOME"/bin/README.md
+rm "$HOME"/bin/lnAllToUsrLocalBin
