@@ -9,6 +9,6 @@ for file in *; do
   # $HOME/bin directory, then...
   if [[ ! " ${ignoreList[*]} " =~ $file && ! -f "$HOME/bin/$file" ]]; then
     # ...symlink the file into $HOME/bin/
-    ln -sf $PWD/$file $HOME/bin/$file
+    ln -sf "$PWD"/"$file" "$HOME"/bin/"$file"
   fi
 done
