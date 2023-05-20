@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# this file is to symlink all the scripts in this folder to home bin. it will
-# then remove the readme and itself from the symlinked files. if home
-# bin didn't exist then a restart may be required for it to be included in the
-# path.
+# list of the files and folders to be ignored
+ignoreList=("$0" ".git/" "README.md")
 
-
-mkdir -p "$HOME"/bin/
-ln -sf "$PWD"/* "$HOME"/bin/
-rm "$HOME"/bin/README.md
-rm "$HOME"/bin/lnAllToUsrLocalBin
+# loop though all the files and folders in the directory
+for file in *; do
+  # if the file is not in the ignore list then
+  if [[ ! " ${ignoreList[*]} " =~ $file ]]; then
+    # symlink the file into $HOME/bin/
+    ln -sf $PWD/$file $HOME/bin/$file
+  fi
+done
