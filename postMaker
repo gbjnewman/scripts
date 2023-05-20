@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
 else
   # if a filename was given, touch the file name with the time and date in UTC
   # added to the end of it
-  touch $HOME/repos/github/socialContent/posts/"$1"-"$(date -u +%R_%d-%m-%YUTC)".md
-  vim $HOME/repos/github/socialContent/posts/"$1"-"$(date -u +%R_%d-%m-%YUTC)".md
+  touch "$HOME"/repos/github/socialContent/posts/"$1"-"$(date -u +%R_%d-%m-%YUTC)".md
+  vim "$HOME"/repos/github/socialContent/posts/"$1"-"$(date -u +%R_%d-%m-%YUTC)".md
 fi
 
