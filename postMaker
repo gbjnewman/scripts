@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# checks to see if a filename was given to the command
+if [ -z "$1" ]; then
+  echo "No filename was given"
+else
+  # if a filename was given, touch the file name with the time and date in UTC
+  # added to the end of it
+  touch $HOME/repos/github/socialContent/posts/"$1"-"$(date -u +%R_%d-%m-%YUTC)"
+fi
