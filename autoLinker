@@ -5,9 +5,10 @@ ignoreList=("$0" ".git/" "README.md")
 
 # loop though all the files and folders in the directory
 for file in *; do
-  # if the file is not in the ignore list then
-  if [[ ! " ${ignoreList[*]} " =~ $file ]]; then
-    # symlink the file into $HOME/bin/
-    ln -sf $PWD/$file $HOME/bin/$file
+  # if the file is not in the ignore list and the file is not already in the
+  # $HOME/bin directory, then...
+  if [[ ! " ${ignoreList[*]} " =~ $file && ! -f "$HOME/bin/$file" ]]; then
+    # ...symlink the file into $HOME/bin/
+    echo "ln -sf $PWD/$file $HOME/bin/$file"
   fi
 done
