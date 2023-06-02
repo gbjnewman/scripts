@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir $HOME/bin
+
 # list of the files and folders to be ignored
 ignoreList=("$0" ".git/" "README.md")
 
