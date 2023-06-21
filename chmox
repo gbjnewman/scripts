@@ -1,3 +1,4 @@
 #!/bin/bash
 
+# simple script that makes whatever you give at as an argument executible
 chmod +x "$@"
