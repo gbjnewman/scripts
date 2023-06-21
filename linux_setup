@@ -53,6 +53,7 @@ declare -a programs=(
 "git"
 "shellcheck"
 "vlc"
+"keepassxc"
 )
 
 for i in "${programs[@]}"; do              # loops through programs array
