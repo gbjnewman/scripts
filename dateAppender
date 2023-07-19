@@ -4,9 +4,8 @@
 if [ -z "$1" ]; then
   echo "No filename was given"
 else
-  # if a filename was given, touch the file name with the time and date in UTC
+  # if a filename was given, in $PWD touch the filename with the time and date in UTC
   # added to the end of it
-  touch "$HOME"/repos/github/socialContent/posts/"$1"-"$(date -u +%R_%d-%m-%yUTC)".md
-  vim "$HOME"/repos/github/socialContent/posts/"$1"-"$(date -u +%R_%d-%m-%yUTC)".md
+  touch "$PWD"/"$1"-"$(date -u +%R_%d-%m-%yUTC)".md
 fi
 
