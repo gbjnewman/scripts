@@ -2,53 +2,53 @@
 
 # ensure sudo has been set
 # ------------------------
-sudo echo "sudo password has been entered"
+sudo echo "sudo password"
 
 # remove unwanted standard ubuntu folders
 # ---------------------------------------
-declare -a rmfldrs=(
-"Desktop"
-"Documents"
-"Downloads"
-"Music"
-"Pictures"
-"Templates"
-"Public"
-"Videos"
-)
-
-for i in "${rmfldrs[@]}"; do              # loops through array
-  if [ -d "$HOME/$i" ]; then            #if directory
-    echo "removing $i"
-    rmdir "$HOME/$i"
-  fi
-done
-
-# add new folders
-# ---------------
-declare -a mkfldrs=(
-"desktop"
-"downloads"
-)
-
-for i in "${mkfldrs[@]}"; do              # loops through array
-  if [ ! -d "$HOME/$i" ]; then            #if not directory
-    echo "adding $i folder"
-    mkdir "$HOME/$i"
-  fi
-done
-
-# update xdg
-# ----------
-echo "updating xdg user directories"
-xdg-user-dirs-update --set DESKTOP "$HOME"/desktop
-xdg-user-dirs-update --set DOWNLOAD "$HOME"/downloads
-xdg-user-dirs-update
+# declare -a rmfldrs=(
+# "Desktop"
+# "Documents"
+# "Downloads"
+# "Music"
+# "Pictures"
+# "Templates"
+# "Public"
+# "Videos"
+# )
+# 
+# for i in "${rmfldrs[@]}"; do              # loops through array
+#   if [ -d "$HOME/$i" ]; then            #if directory
+#     echo "removing $i"
+#     rmdir "$HOME/$i"
+#   fi
+# done
+# 
+# # add new folders
+# # ---------------
+# declare -a mkfldrs=(
+# "desktop"
+# "downloads"
+# )
+# 
+# for i in "${mkfldrs[@]}"; do              # loops through array
+#   if [ ! -d "$HOME/$i" ]; then            #if not directory
+#     echo "adding $i folder"
+#     mkdir "$HOME/$i"
+#   fi
+# done
+# 
+# # update xdg
+# # ----------
+# echo "updating xdg user directories"
+# xdg-user-dirs-update --set DESKTOP "$HOME"/desktop
+# xdg-user-dirs-update --set DOWNLOAD "$HOME"/downloads
+# xdg-user-dirs-update
 
 # install Programs
 # ----------------
 declare -a programs=(
-"pass"
+#"pass"
 "vim"
 "git"
 "shellcheck"
