@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo 'setting up git config user and email'
+read -r -p 'enter git user email: ' git_email
+read -r -p 'enter git user name: ' git_name
+git config --global user.email "$git_email"
+git config --global user.name "$git_name"

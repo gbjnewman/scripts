@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# install Programs
+# ----------------
+declare -a programs=(
+#"pass"
+"vim"
+"git"
+"shellcheck"
+"tmux"
+#"vlc"
+#"keepassxc"
+)
+
+for i in "${programs[@]}"; do              # loops through programs array
+  if ! command -v "$i" &>/dev/null; then          # checks if programm not exist
+    echo "installing $i"
+    sudo apt-get install "$i" -y          # installs programm if not exist
+  fi
+done
