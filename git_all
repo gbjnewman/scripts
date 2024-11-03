@@ -10,39 +10,39 @@ for folder in *; do
 			git status
 			#check if there are changes to commit
 			if [[ -n $(git status --porcelain) ]]; then
-				echo -e "\033[33mAUTO SCRIPT: changes detected\n"
-				echo -e "adding changes...\n"
+				echo -e "\033[33mAUTO GIT SCRIPT: changes detected\n"
+				echo -e "AUTO GIT SCRIPT: adding changes...\n"
 				# add all changes
 				git add .
-				echo -e "committing changes...\033[0m\n\n"
+				echo -e "AUTO GIT SCRIPT: committing changes...\033[0m\n\n"
 				#commit with generic message
-				git commit -m "AUTOMATED SCRIPT COMMIT"
-				echo -e "\033[33mpushing changes...\033[0m\n"
+				git commit -m "AUTOMATED GIT SCRIPT COMMIT"
+				echo -e "\033[33mAUTO GIT SCRIPT: pushing changes...\033[0m\n"
 				#push changes
 				git push
 			else
 				# check if branch is ahead of remote
 				if [[ $(git rev-list @{u}..HEAD 2>/dev/null) ]]; then
-					echo "branch is ahead of remote. pushing existing commits..."
+					echo -e "\033[33mAUTO GIT SCRIPT: branch is ahead of remote. pushing existing commits...\033\n"
 					git push
 				else
-					echo "no changes to commit"
-					echo #newline
+					echo -e "\033[33m\nAUTO GIT SCRIPT: no changes to commit\033\n"
 				fi
 			fi
 		else
-			echo "directory is not a git repo"
+			echo "\033[33mAUTO GIT SCRIPT: directory is not a git repo\033\n"
 		fi
 		cd ..
-		echo # add newline
-		read -n 1 -s -r -p "press any key to continue, or q to quit..." key # pause between checks
+		echo -e "\033[33m"
+		read -n 1 -s -r -p "AUTO GIT SCRIPT: press any key to continue, or q to quit..." key # pause between checks
+		echo -e "\033[0m"
 		echo # add newline
 		if [[ $key == 'q' ]]; then
-			echo "exiting script"
+			echo -e "\033[33mAUTO GIT SCRIPT: exiting script\033[0m\n"
 			exit 0
 		fi
 	else
-		echo "$folder is not a direstory, skipping...\n"
+		echo -e "\033[33mAUTO GIT SCRIPT: $folder is not a direstory, skipping...\033[0m\n"
 	fi
 done
 
