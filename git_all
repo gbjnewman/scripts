@@ -9,18 +9,14 @@ for folder in *; do
 			git status
 			#check if there are changes to commit
 			if [[ -n $(git status --porcelain) ]]; then
-				echo -e "\033[35mAUTO SCRIPT: changes detected"
-				echo #newline
-				echo "adding changes..."
-				echo #newline
+				echo -e "\033[35mAUTO SCRIPT: changes detected\n"
+				echo -e "adding changes...\n"
 				# add all changes
 				git add .
-				echo "committing changes..."
-				echo #newline
+				echo -e "committing changes...\n"
 				#commit with generic message
 				git commit -m "automated script commit"
-				echo "pushing changes...\033[0m"
-				echo #newline
+				echo -e "pushing changes...\033[0m\n"
 				#push changes
 				git push
 			else
