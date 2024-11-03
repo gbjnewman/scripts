@@ -3,13 +3,13 @@ clear
 cd $HOME/repos/github/
 for folder in *; do
 	if [ -d "$folder" ]; then # check to make sure folder is a directory(folder)
-		echo -e "\n#checking...\033[36m$folder\033[0m\n"
+		echo -e "\n\033[33mAUTO GIT SCRIPT: checking...\033[36m$(pwd)/$folder\033[0m\n"
 		cd "$folder"
 		if [ -d ".git" ]; then #checks if the directory is a git directory
 			git status
 			#check if there are changes to commit
 			if [[ -n $(git status --porcelain) ]]; then
-				echo -e "\033[35mAUTO SCRIPT: changes detected\n"
+				echo -e "\033[33mAUTO SCRIPT: changes detected\n"
 				echo -e "adding changes...\n"
 				# add all changes
 				git add .
