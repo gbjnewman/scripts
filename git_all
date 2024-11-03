@@ -2,6 +2,7 @@
 clear
 cd $HOME/repos/github/
 for folder in *; do
+	clear
 	if [ -d "$folder" ]; then # check to make sure folder is a directory(folder)
 		echo -e "\n\033[33mAUTO GIT SCRIPT: checking...\033[36m$(pwd)/$folder\033[0m\n"
 		cd "$folder"
@@ -13,10 +14,10 @@ for folder in *; do
 				echo -e "adding changes...\n"
 				# add all changes
 				git add .
-				echo -e "committing changes...\n"
+				echo -e "committing changes...\033[0m\n\n"
 				#commit with generic message
-				git commit -m "automated script commit"
-				echo -e "pushing changes...\033[0m\n"
+				git commit -m "AUTOMATED SCRIPT COMMIT"
+				echo -e "\033[33mpushing changes...\033[0m\n"
 				#push changes
 				git push
 			else
