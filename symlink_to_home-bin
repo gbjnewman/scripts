@@ -11,7 +11,7 @@ if [ ! -d "$HOME/bin/" ]; then
 	mkdir "$HOME/bin/"
 fi
 
-# loop though all the files and folders in the directory
+# loop though all the files and folders in this directory
 for file in *; do
   # if the file is not in the ignore list and the file is not already in the
   # $HOME/bin directory, then...

@@ -1,11 +1,8 @@
 #!/bin/bash
 cd $HOME/repos/github/
 for folder in *; do
-  printf "\033[38;5;197m"
-  printf "\n----------"
-  printf "Checking $folder----------\n\n"
-  printf "$(tput sgr0)"
+  echo "----------Checking $folder----------\n\n"
   cd "$HOME/repos/github/$folder"
-  gitpush
+  git push
 done
 

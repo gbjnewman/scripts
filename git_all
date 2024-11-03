@@ -1,0 +1,51 @@
+#!/bin/bash
+clear
+cd $HOME/repos/github/
+for folder in *; do
+	if [ -d "$folder" ]; then # check to make sure folder is a directory(folder)
+		echo -e "\n#checking...\033[36m$folder\033[0m\n"
+		cd "$folder"
+		if [ -d ".git" ]; then #checks if the directory is a git directory
+			git status
+			#check if there are changes to commit
+			if [[ -n $(git status --porcelain) ]]; then
+				echo -e "\033[35mAUTO SCRIPT: changes detected"
+				echo #newline
+				echo "adding changes..."
+				echo #newline
+				# add all changes
+				git add .
+				echo "committing changes..."
+				echo #newline
+				#commit with generic message
+				git commit -m "automated script commit"
+				echo "pushing changes...\033[0m"
+				echo #newline
+				#push changes
+				git push
+			else
+				# check if branch is ahead of remote
+				if [[ $(git rev-list @{u}..HEAD 2>/dev/null) ]]; then
+					echo "branch is ahead of remote. pushing existing commits..."
+					git push
+				else
+					echo "no changes to commit"
+					echo #newline
+				fi
+			fi
+		else
+			echo "directory is not a git repo"
+		fi
+		cd ..
+		echo # add newline
+		read -n 1 -s -r -p "press any key to continue, or q to quit..." key # pause between checks
+		echo # add newline
+		if [[ $key == 'q' ]]; then
+			echo "exiting script"
+			exit 0
+		fi
+	else
+		echo "$folder is not a direstory, skipping...\n"
+	fi
+done
+
